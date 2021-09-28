@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+/*const MongoClient = require('mongodb').MongoClient;
 //const url = 'mongodb://localhost:27017';
 //const url = 'mongodb+srv://new_user_1:wRsOPKXD8KscqISj@cluster0.vibrz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const url = process.env.MONGODB_URI;
@@ -32,3 +32,4 @@ MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
             client.close();
     });
 });
+*/
