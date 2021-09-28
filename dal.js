@@ -7,7 +7,7 @@ MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
 
     // connect to myproject database
     //define database Name
-    const dbName = 'Cluster0'
+    const dbName = 'myproject';
     const db = client.db(dbName);
 });
 
