@@ -19,6 +19,10 @@
     "type": "git",
     "url": "git+https://github.com/bcusack91/brendancusackfullstackbankingapplication.git"
   },
+  "engines": {
+    "node": "16.10.0",
+    "npm": "7.21.1"
+  },
   "bugs": {
     "url": "https://github.com/bcusack91/brendancusackfullstackbankingapplication/issues"
   },
