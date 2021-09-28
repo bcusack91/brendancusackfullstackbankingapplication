@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+/*const MongoClient = require('mongodb').MongoClient;
 const url         = 'mongodb+srv://new_user_1:wRsOPKXD8KscqISj@cluster0.vibrz.mongodb.net/Cluster0?retryWrites=true&w=majority';
  
 // connect to mongo
@@ -9,6 +9,16 @@ MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
     //define database Name
     const dbName = 'myproject';
     const db = client.db(dbName);
+});*/
+
+
+const { MongoClient } = require('mongodb');
+const uri = "mongodb+srv://new_user_1:wRsOPKXD8KscqISj@cluster0.vibrz.mongodb.net/Cluster0?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
 });
 
 // create user account
