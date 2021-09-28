@@ -1,13 +1,14 @@
 const MongoClient = require('mongodb').MongoClient;
 const url         = 'mongodb+srv://new_user_1:wRsOPKXD8KscqISj@cluster0.vibrz.mongodb.net/Cluster0?retryWrites=true&w=majority';
-const db          = 'Cluster0';
  
 // connect to mongo
 MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
     console.log("Connected successfully to db server");
 
     // connect to myproject database
-    db = client.db(url);
+    //define database Name
+    const dbName = 'Cluster0'
+    const db = client.db(dbName);
 });
 
 // create user account
