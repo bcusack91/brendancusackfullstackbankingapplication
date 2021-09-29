@@ -1,24 +1,11 @@
-/*const MongoClient = require('mongodb').MongoClient;
-const url         = 'mongodb+srv://new_user_1:wRsOPKXD8KscqISj@cluster0.vibrz.mongodb.net/Cluster0?retryWrites=true&w=majority';
- 
-// connect to mongo
+const MongoClient = require('mongodb').MongoClient;
+const url         = 'mongodb://localhost:27017';
+let db            = null;
+
 MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
     console.log("Connected successfully to db server");
 
-    // connect to myproject database
-    //define database Name
-    const dbName = 'myproject';
-    const db = client.db(dbName);
-});*/
-
-
-const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://new_user_1:wRsOPKXD8KscqISj@cluster0.vibrz.mongodb.net/Cluster0?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
+    db = client.db('mynextproject')
 });
 
 // create user account
@@ -84,6 +71,5 @@ function all(){
         });    
     })
 }
-
 
 module.exports = {create, findOne, find, update, all};
