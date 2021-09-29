@@ -14,14 +14,15 @@ function Balance(){
     )
   
   }
-  
+let bal_2 = null;
   function BalanceMsg(props){
     return(<>
       <h5>Success</h5>
-      <h6>{status}</h6>
+      <h6 id="balance_head">{`Your balance is: ${bal_2}`}</h6>
       <button type="submit" 
         className="btn btn-light" 
         onClick={() => props.setShow(true)}>
+
             Check balance again
       </button>
     </>);
@@ -29,7 +30,7 @@ function Balance(){
   
   function BalanceForm(props){
     const [email, setEmail]   = React.useState('');
-    const [balance, setBalance] = React.useState('');  
+    //const [balance, setBalance] = React.useState('');  
     const ctx = React.useContext(UserContext);  
   
     function handle(){
@@ -43,14 +44,23 @@ function Balance(){
       console.log(user);
       */
 
+      //let bal_2 = null;
       const url=`/account/balance/${email}`;
       (async () => {
         var res = await fetch(url);
-        var data = await res.json();
-        console.log(data)})();
-        
-      props.setStatus('Your balance is: ' + user.balance);
-      props.setShow(false);
+        const data = await res.json();
+        console.log(data)
+        bal_2 = JSON.stringify(data.balance);
+        console.log(bal_2);
+        //props.setStatus('Your balance is: ' + data.balance);
+        //props.setShow(false);
+      })().then(() => {   
+        console.log(bal_2);
+        //props.setStatus(`Your balance is: ${bal_2}`);
+        props.setShow(false);
+      }
+        );
+
     }
   
     return (<>
